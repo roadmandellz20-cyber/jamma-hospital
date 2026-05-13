@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Bricolage_Grotesque, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
+import Navbar from '@/components/Navbar'
 
 const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -28,6 +29,7 @@ export default function RootLayout({
       className={`${bricolageGrotesque.variable} ${plusJakartaSans.variable}`}
     >
       <body className="font-body">
+        <Navbar />
         {children}
       </body>
     </html>
