@@ -10,6 +10,11 @@
   --text-muted: #6B7A8D;
 }
 
+@theme {
+  --font-family-display: var(--font-display), sans-serif;
+  --font-family-body:    var(--font-body),    sans-serif;
+}
+
 @layer base {
   h1, h2, h3, h4 {
     font-family: var(--font-display);
