@@ -28,7 +28,7 @@ export default function RootLayout({
       lang="en"
       className={`${bricolageGrotesque.variable} ${plusJakartaSans.variable}`}
     >
-      <body className="font-body">
+      <body className="font-body pt-16 md:pt-[72px]">
         <Navbar />
         {children}
       </body>

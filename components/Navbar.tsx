@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Search, Menu, X } from 'lucide-react'
 
@@ -66,6 +66,7 @@ function MobileDrawer({
     <AnimatePresence>
       {isOpen && (
         <motion.div
+          id="mobile-nav"
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: 'auto', opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
@@ -109,12 +110,25 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    const closeOnDesktop = () => {
+      if (window.innerWidth >= 768) setIsMenuOpen(false)
+    }
+    window.addEventListener('resize', closeOnDesktop)
+    return () => window.removeEventListener('resize', closeOnDesktop)
+  }, [])
+
+  const closeMenu = useCallback(() => setIsMenuOpen(false), [])
+
   return (
     <header className="fixed top-0 inset-x-0 z-50">
       <nav
+        aria-label="Site header"
         className={[
-          'bg-[var(--navy)] transition-all duration-200',
-          isScrolled ? 'backdrop-blur-md border-b border-white/10' : '',
+          'transition-all duration-200',
+          isScrolled
+            ? 'bg-[var(--navy)]/90 backdrop-blur-md border-b border-white/10'
+            : 'bg-[var(--navy)]',
         ].join(' ')}
       >
         <div className="flex items-center justify-between h-16 md:h-[72px] px-6 md:px-10 max-w-[1440px] mx-auto">
@@ -141,6 +155,7 @@ export default function Navbar() {
           {/* Mobile: hamburger */}
           <button
             type="button"
+            aria-controls="mobile-nav"
             className="md:hidden flex items-center justify-center w-9 h-9 rounded-full hover:bg-white/10 transition-colors"
             onClick={() => setIsMenuOpen((prev) => !prev)}
             aria-expanded={isMenuOpen}
@@ -154,7 +169,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <MobileDrawer isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+      <MobileDrawer isOpen={isMenuOpen} onClose={closeMenu} />
     </header>
   )
 }
