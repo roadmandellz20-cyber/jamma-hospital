@@ -11,8 +11,8 @@
 }
 
 @theme {
-  --font-family-display: var(--font-display), sans-serif;
-  --font-family-body:    var(--font-body),    sans-serif;
+  --font-display: var(--next-font-display), sans-serif;
+  --font-body:    var(--next-font-body),    sans-serif;
 }
 
 @layer base {

@@ -5,12 +5,12 @@ import Navbar from '@/components/Navbar'
 
 const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ['latin'],
-  variable: '--font-display',
+  variable: '--next-font-display',
 })
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-body',
+  variable: '--next-font-body',
 })
 
 export const metadata: Metadata = {
