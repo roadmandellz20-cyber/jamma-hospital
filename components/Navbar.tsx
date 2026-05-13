@@ -114,16 +114,15 @@ export default function Navbar() {
     const closeOnDesktop = () => {
       if (window.innerWidth >= 768) setIsMenuOpen(false)
     }
-    window.addEventListener('resize', closeOnDesktop)
+    window.addEventListener('resize', closeOnDesktop, { passive: true })
     return () => window.removeEventListener('resize', closeOnDesktop)
   }, [])
 
   const closeMenu = useCallback(() => setIsMenuOpen(false), [])
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50">
+    <header aria-label="Site header" className="fixed top-0 inset-x-0 z-50">
       <nav
-        aria-label="Site header"
         className={[
           'transition-all duration-200',
           isScrolled
@@ -155,7 +154,7 @@ export default function Navbar() {
           {/* Mobile: hamburger */}
           <button
             type="button"
-            aria-controls="mobile-nav"
+            aria-controls={isMenuOpen ? 'mobile-nav' : undefined}
             className="md:hidden flex items-center justify-center w-9 h-9 rounded-full hover:bg-white/10 transition-colors"
             onClick={() => setIsMenuOpen((prev) => !prev)}
             aria-expanded={isMenuOpen}
