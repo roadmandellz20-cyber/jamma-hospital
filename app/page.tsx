@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { Check } from 'lucide-react'
 
 const TRUST_ITEMS = [
@@ -15,7 +16,7 @@ function TealDot() {
 
 export default function Home() {
   return (
-    <section className="min-h-screen bg-[var(--navy)] flex items-center">
+    <main className="min-h-screen bg-[var(--navy)] flex items-center">
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 w-full py-16 md:py-0">
         <div className="grid grid-cols-1 md:grid-cols-[55fr_45fr] gap-12 md:gap-16 items-center">
 
@@ -32,7 +33,7 @@ export default function Home() {
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight font-display">
               <span className="block text-white">Specialist Care,</span>
               <span className="block text-white">Right Here</span>
-              <span className="block" style={{ color: 'var(--teal)' }}>at Home.</span>
+              <span className="block text-[var(--teal)]">at Home.</span>
             </h1>
 
             <p className="text-white/60 text-base md:text-lg mt-6 max-w-md font-body">
@@ -41,12 +42,12 @@ export default function Home() {
             </p>
 
             <div className="mt-10 flex gap-4 flex-wrap">
-              <button className="bg-[var(--teal)] text-white rounded-full px-7 py-3.5 text-sm font-medium hover:opacity-90 transition-opacity">
+              <Link href="/appointments" className="bg-[var(--teal)] text-white rounded-full px-7 py-3.5 text-sm font-medium hover:opacity-90 transition-opacity">
                 Book an Appointment
-              </button>
-              <button className="border border-white/30 text-white rounded-full px-7 py-3.5 text-sm font-medium hover:bg-white/10 transition-colors">
-                Our Specialities →
-              </button>
+              </Link>
+              <Link href="/specialities" className="border border-white/30 text-white rounded-full px-7 py-3.5 text-sm font-medium hover:bg-white/10 transition-colors">
+                Our Specialities <span aria-hidden="true">→</span>
+              </Link>
             </div>
 
             <div className="mt-10 flex items-center gap-6 flex-wrap">
@@ -112,6 +113,6 @@ export default function Home() {
 
         </div>
       </div>
-    </section>
+    </main>
   )
 }
