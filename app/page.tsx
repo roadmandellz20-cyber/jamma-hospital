@@ -29,7 +29,7 @@ export default function Home() {
               Now Open in Senegambia, The Gambia
             </span>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight font-display">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight font-display">
               <span className="block text-white">Specialist Care,</span>
               <span className="block text-white">Right Here</span>
               <span className="block" style={{ color: 'var(--teal)' }}>at Home.</span>
@@ -103,13 +103,7 @@ export default function Home() {
               <div className="text-white text-sm font-medium">First specialist hospital</div>
               <div className="text-white/50 text-xs">in Senegambia</div>
               <div className="border-t border-white/10 mt-2 pt-2">
-                <span
-                  className="text-xs rounded-full px-3 py-1 inline-block"
-                  style={{
-                    background: 'color-mix(in srgb, var(--teal) 20%, transparent)',
-                    color: 'var(--teal)',
-                  }}
-                >
+                <span className="bg-[var(--teal)]/20 text-[var(--teal)] text-xs rounded-full px-3 py-1 inline-block">
                   Health Tourism Ready
                 </span>
               </div>
